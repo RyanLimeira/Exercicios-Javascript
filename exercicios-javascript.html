@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplos JavaScript</title>
+</head>
+
+<body>
+
+<!--1: Operações com duas variáveis -->
+<script>
+    var num1 = 10;
+    var num2 = 100;
+
+    alert("Soma: " + (num1 + num2));
+    alert("Subtração: " + (num1 - num2));
+    alert("Multiplicação: " + (num1 * num2));
+    alert("Divisão: " + (num1 / num2));
+</script>
+
+<!--2: Loop de 10 a 100 -->
+<script>
+    for (var i = 10; i <= 100; i++) {
+        console.log(i);
+    }
+</script>
+
+<!--3: Tabuada com valor fixo -->
+<script>
+    var valorFixo = 5;
+    var tabuadaFixa = "<h3>Tabuada com valor fixo (" + valorFixo + "):</h3>";
+
+    for (var i = 1; i <= 10; i++) {
+        tabuadaFixa += valorFixo + " x " + i + " = " + (valorFixo * i) + "<br>";
+    }
+
+    document.write(tabuadaFixa);
+</script>
+
+<!--4: Tabuada com valor variável -->
+<script>
+    var valorVariavel = prompt("Digite um valor para a tabuada:");
+    var tabuadaVariavel = "<h3>Tabuada com valor variável (" + valorVariavel + "):</h3>";
+
+    for (var i = 1; i <= 10; i++) {
+        tabuadaVariavel += valorVariavel + " x " + i + " = " + (valorVariavel * i) + "<br>";
+    }
+
+    document.write(tabuadaVariavel);
+</script>
+
+<!--5: Calculadora -->
+<script>
+    function calcular() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var operacao = document.getElementById("operacao").value;
+
+        var resultado;
+
+        switch (operacao) {
+            case "+":
+                resultado = num1 + num2;
+                break;
+            case "-":
+                resultado = num1 - num2;
+                break;
+            case "*":
+                resultado = num1 * num2;
+                break;
+            case "/":
+                resultado = num1 / num2;
+                break;
+            default:
+                resultado = "Operação inválida";
+        }
+
+        document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+    }
+</script>
+
+<!-- 6: Números pares em um array -->
+<script>
+    var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var numerosPares = [];
+
+    for (var i = 0; i < numeros.length; i++) {
+        if (numeros[i] % 2 === 0) {
+            numerosPares.push(numeros[i]);
+        }
+    }
+
+    alert("Números Pares: " + numerosPares.join(", "));
+</script>
+
+<!--7: Cálculo de custo de carro -->
+<script>
+    function calcularCusto() {
+        var custoFabrica = parseFloat(document.getElementById("custoFabrica").value);
+        var percDistribuidor = parseFloat(document.getElementById("percDistribuidor").value);
+        var percImpostos = parseFloat(document.getElementById("percImpostos").value);
+
+        var valorFinal = custoFabrica + (custoFabrica * percDistribuidor / 100) + (custoFabrica * percImpostos / 100);
+
+        document.getElementById("valorfinal").innerHTML = "Valor Final: " + valorFinal;
+    }
+</script>
+
+<!-- Interface para a Calculadora -->
+<div>
+    <label for="num1">Número 1:</label>
+    <input type="text" id="num1">
+
+    <label for="operacao">Operação (+, -, *, /):</label>
+    <input type="text" id="operacao">
+
+    <label for="num2">Número 2:</label>
+    <input type="text" id="num2">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <p id="resultado"></p>
+</div>
+
+<!-- Interface para o Cálculo de Custo de Carro -->
+<div>
+    <label for="custoFabrica">Custo de Fábrica:</label>
+    <input type="text" id="custoFabrica">
+
+    <label for="percDistribuidor">% Distribuidor:</label>
+    <input type="text" id="percDistribuidor">
+
+    <label for="percImpostos">% Impostos:</label>
+    <input type="text" id="percImpostos">
+
+    <button onclick="calcularCusto()">Calcular</button>
+
+    <p id="valorfinal"></p>
+</div>
+
+</body>
+</html>
